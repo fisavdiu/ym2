@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
     Volt::route('/profile', 'profile');
 });
 
-Volt::route('/posts/{post}', 'posts.show');
+Volt::route('/posts/{post}', 'posts.show')->name('posts.show');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

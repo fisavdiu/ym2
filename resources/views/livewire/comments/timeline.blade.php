@@ -1,15 +1,21 @@
 <?php
 
 use App\Models\Comment;
-use App\Models\Category;
 use App\Models\Post;
-use Illuminate\Database\Eloquent\Builder;
+use App\Models\User;
 use Illuminate\Support\Collection;
+use Livewire\Attributes\On;
+use Livewire\Attributes\Rule;
 use Livewire\Volt\Component;
 
 new class extends Component {
-    public Post $post;
 
+    public Post $post;
+// Parent Component
+
+    protected $listeners = [
+        'refresh-parent' => 'done',
+    ];
     public function comments(): Collection
     {
         return Comment::query()
@@ -18,6 +24,7 @@ new class extends Component {
             ->oldest()
             ->get();
     }
+
     #[On('comment-done')]
     public function done(): void
     {
@@ -29,10 +36,7 @@ new class extends Component {
     {
         return <<<'HTML'
         <div>
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title-04a desc-04a" aria-live="polite" aria-busy="true" class="w-10 h-10 animate animate-spin">
-                <circle cx="12" cy="12" r="10" class="stroke-slate-200" stroke-width="4" />
-                <path d="M12 22C14.6522 22 17.1957 20.9464 19.0711 19.0711C20.9464 17.1957 22 14.6522 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2" class="stroke-teal-500" stroke-width="4" />
-            </svg>
+            <div class="loading loading-spinner"></div>
         </div>
         HTML;
     }
@@ -46,18 +50,23 @@ new class extends Component {
 }; ?>
 
 <div>
-<div class="flex items-center justify-start w-full mt-0 shadow-sm rounded bg-white md:p-2">
-    <!-- Component: User feed -->
-    <ul aria-label="User feed" role="feed" class="relative flex flex-col gap-12 py-8 px-8 ">
-{{--        {{ var_dump($comments)  }}--}}
-        @foreach($comments as $comment)
-            <livewire:comments.card  :$comment wire:key="comment-{{ $comment->id }}"/>
-        @endforeach
+        <div class="pt-10">
+            @if (auth()->user())
+                <livewire:comments.create :post="$post"/>
+            @endif
+        </div>
 
 
-        @if(auth()->user())
-            <livewire:comments.create :post="$post" />
-        @endif
-    </ul>
-</div>
+
+        <!-- Component: User feed -->
+
+        <div class="relative flex flex-col gap-12 py-8 px-8 ">
+            {{--        {{ var_dump($comments)  }}--}}
+            @foreach($comments as $comment)
+                <livewire:comments.card x-on:comment-done :$comment lazy wire:key="comment-{{ $comment->id }}" />
+            @endforeach
+        </div>
+
+
+
 </div>
