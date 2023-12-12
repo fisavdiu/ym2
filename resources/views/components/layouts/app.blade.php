@@ -13,6 +13,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @livewireStyles
     </head>
     <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
@@ -55,7 +56,7 @@
                                 <ul class="flex flex-col flex-1 gap-10 py-3">
                                     <li class="px-3">
                                         <!-- Component: Large primary button with leading icon  -->
-                                        <button
+                                        <a href="/posts/create" wire:navigate
                                             class="inline-flex w-full items-center justify-center h-12 gap-1 px-6 text-sm font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-teal-500 hover:bg-teal-600 focus:bg-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-300 disabled:shadow-none">
                                             <span class="order-2">New discussion</span>
                                             <span class="relative only:-mx-6">
@@ -65,7 +66,7 @@
                                               d="M12 4.5v15m7.5-7.5h-15"/>
                                     </svg>
                                     </span>
-                                        </button>
+                                        </a>
                                         <!-- End Large primary button with leading icon  -->
                                     </li>
 

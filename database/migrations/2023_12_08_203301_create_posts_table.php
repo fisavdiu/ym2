@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('author_id');
             $table->string('title');
             $table->text('body');
-            $table->boolean('is_deleted');
+            $table->boolean('is_deleted')->default(false);
         });
     }
 

@@ -22,6 +22,14 @@ Volt::route('/', 'posts.index');
 //    ->middleware(['auth', 'verified'])
 //    ->name('dashboard');
 
+Route::middleware('auth')->group(function () {
+    Volt::route('/posts/create', 'posts.create');
+    Volt::route('/posts/{post}/edit', 'posts.edit');
+    Volt::route('/profile', 'profile');
+});
+
+Volt::route('/posts/{post}', 'posts.show');
+
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
