@@ -64,7 +64,7 @@
 
                                 @if($user = auth()->user())
                                     <li class="px-3">
-                                        <a href="#"
+                                        <a href="/profile" wire:navigate
                                            class="flex items-center gap-3 p-3 transition-colors rounded text-slate-700 hover:text-teal-500 hover:bg-teal-50 focus:bg-teal-50 aria-[current=page]:text-teal-500 aria-[current=page]:bg-teal-50 ">
                                             <div class="flex items-center self-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -75,7 +75,7 @@
                                                 </svg>
 
                                             </div>
-                                            <div href="/profile" wire:navigate
+                                            <div
                                                 class="flex flex-col items-start justify-center flex-1 w-full gap-0 overflow-hidden text-sm truncate">
                                                 Your profile
                                             </div>

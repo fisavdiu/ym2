@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -14,6 +15,9 @@ use Livewire\Volt\Volt;
 |
 */
 
+
+
+
 Volt::route('/login', 'pages.auth.login')->name('login');
 
 Volt::route('/', 'posts.index');
@@ -21,14 +25,20 @@ Volt::route('/', 'posts.index');
 //Route::view('dashboard', 'dashboard')
 //    ->middleware(['auth', 'verified'])
 //    ->name('dashboard');
-
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Volt::route('/posts/create', 'posts.create');
     Volt::route('/posts/{post}/edit', 'posts.edit');
     Volt::route('/profile', 'profile');
 });
 
 Volt::route('/posts/{post}', 'posts.show')->name('posts.show');
+
+Route::middleware(['auth','verified'])->group(function () {
+    Volt::route('/edit-profile', 'edit-profile');
+    Volt::route('verify-email', 'pages.auth.verify-email')
+        ->name('verification.notice');
+});
+
 
 //Route::view('profile', 'profile')
 //    ->middleware(['auth'])

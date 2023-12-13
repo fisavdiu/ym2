@@ -32,6 +32,10 @@ new class extends Component
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
+    @if (Route::has('login'))
+        <livewire:welcome.navigation />
+    @endif
+
     <form wire:submit="login">
         <!-- Email Address -->
         <div>
