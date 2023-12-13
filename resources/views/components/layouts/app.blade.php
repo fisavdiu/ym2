@@ -75,7 +75,7 @@
                                                 </svg>
 
                                             </div>
-                                            <div
+                                            <div href="/profile" wire:navigate
                                                 class="flex flex-col items-start justify-center flex-1 w-full gap-0 overflow-hidden text-sm truncate">
                                                 Your profile
                                             </div>
@@ -108,46 +108,18 @@
                         <ul class="sticky bg-white pl-10 top-[5.5rem] hidden w-64  flex-col gap-3 py-2 lg:flex lg:flex-col">
                             <li class=""><h3 class="flex py-3 text-m font-semibold uppercase text-wuiSlate-900"><span
                                         class="flex-1 truncate">Categories</span></h3></li>
-                            <li>
-                                <!-- Component: Base secondary basic button -->
-                                <button
-                                    class="inline-flex items-center justify-center h-10 gap-2 px-5 text-sm font-medium tracking-wide transition duration-300 rounded-full focus-visible:outline-none justify-self-center whitespace-nowrap bg-teal-50 text-teal-500 hover:bg-teal-100 hover:text-teal-600 focus:bg-teal-200 focus:text-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-100 disabled:text-teal-400 disabled:shadow-none">
-                                    <span>Jobs</span>
-                                </button>
-                                <!-- End Base secondary basic button -->
-                            </li>
-                            <li>
-                                <!-- Component: Base secondary basic button -->
-                                <button
-                                    class="inline-flex items-center justify-center h-10 gap-2 px-5 text-sm font-medium tracking-wide transition duration-300 rounded-full focus-visible:outline-none justify-self-center whitespace-nowrap bg-teal-50 text-teal-500 hover:bg-teal-100 hover:text-teal-600 focus:bg-teal-200 focus:text-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-100 disabled:text-teal-400 disabled:shadow-none">
-                                    <span>Jobs</span>
-                                </button>
-                                <!-- End Base secondary basic button -->
-                            </li>
-                            <li>
-                                <!-- Component: Base secondary basic button -->
-                                <button
-                                    class="inline-flex items-center justify-center h-10 gap-2 px-5 text-sm font-medium tracking-wide transition duration-300 rounded-full focus-visible:outline-none justify-self-center whitespace-nowrap bg-teal-50 text-teal-500 hover:bg-teal-100 hover:text-teal-600 focus:bg-teal-200 focus:text-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-100 disabled:text-teal-400 disabled:shadow-none">
-                                    <span>Jobs</span>
-                                </button>
-                                <!-- End Base secondary basic button -->
-                            </li>
-                            <li>
-                                <!-- Component: Base secondary basic button -->
-                                <button
-                                    class="inline-flex items-center justify-center h-10 gap-2 px-5 text-sm font-medium tracking-wide transition duration-300 rounded-full focus-visible:outline-none justify-self-center whitespace-nowrap bg-teal-50 text-teal-500 hover:bg-teal-100 hover:text-teal-600 focus:bg-teal-200 focus:text-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-100 disabled:text-teal-400 disabled:shadow-none">
-                                    <span>Jobs</span>
-                                </button>
-                                <!-- End Base secondary basic button -->
-                            </li>
-                            <li>
-                                <!-- Component: Base secondary basic button -->
-                                <button
-                                    class="inline-flex items-center justify-center h-10 gap-2 px-5 text-sm font-medium tracking-wide transition duration-300 rounded-full focus-visible:outline-none justify-self-center whitespace-nowrap bg-teal-50 text-teal-500 hover:bg-teal-100 hover:text-teal-600 focus:bg-teal-200 focus:text-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-100 disabled:text-teal-400 disabled:shadow-none">
-                                    <span>Jobs</span>
-                                </button>
-                                <!-- End Base secondary basic button -->
-                            </li>
+                            @foreach(\App\Models\Category::all() as $category)
+                                <li>
+                                    <!-- Component: Base secondary basic button -->
+                                    <button
+                                        class="inline-flex items-center justify-center h-10 gap-2 px-5 text-sm font-medium tracking-wide transition duration-300 rounded-full focus-visible:outline-none justify-self-center whitespace-nowrap bg-teal-50 text-teal-500 hover:bg-teal-100 hover:text-teal-600 focus:bg-teal-200 focus:text-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-100 disabled:text-teal-400 disabled:shadow-none">
+                                        <span>{{$category->name}}</span>
+                                    </button>
+                                    <!-- End Base secondary basic button -->
+                                </li>
+                            @endforeach
+
+
                         </ul>
                     </nav>
 

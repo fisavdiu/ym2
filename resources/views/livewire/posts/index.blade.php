@@ -18,8 +18,9 @@ new class extends Component {
             ->with(['category', 'author', 'latestComment'])
             ->withCount('comments')
             ->where('title', 'like', "%$this->search%")
-            ->take(10)
+            ->where('is_deleted', false)
             ->latest('created_at')
+            ->limit(10)
             ->get();
     }
 
@@ -62,14 +63,13 @@ new class extends Component {
                             <h3 class="text-xl font-medium text-slate-700">{{$post->title}}</h3>
                         </header>
                         <p> {{$post->body }} </p>
-                        <a class="w-fit flex items-center gap-2 py-2"
-                           href="/r/hello_world/post/clocpflni0001l7088h75ugq0">
+                        <div class="w-fit flex items-center gap-2 py-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                  stroke-linejoin="round" class="h-4 w-4">
                                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                             </svg>
-                            {{$post->comments->count()}} Comments</a>
+                            {{$post->comments->count()}} Comments</div>
                     </div>
                 </div>
             </a>

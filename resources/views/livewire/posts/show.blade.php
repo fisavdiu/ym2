@@ -11,6 +11,7 @@ new class extends Component {
     public function delete(): void
     {
         $this->post->update(['is_deleted' => true]);
+        $this->redirect('/');
     }
 
 }; ?>
@@ -31,8 +32,26 @@ new class extends Component {
                 <h3 class="text-xl font-medium text-slate-700">{{$post->title}}</h3>
             </header>
             <p> {{$post->body }} </p>
+            <div class="justify-content-end pt-8">
+                @if($post->author->isMyself())
+                    <div>
+                        <!-- Component: Small primary basic button -->
+                        <button wire:click="delete" class="inline-flex items-center justify-center h-8 gap-2 px-4 text-xs font-medium tracking-wide text-white transition duration-300 rounded-full focus-visible:outline-none whitespace-nowrap bg-teal-500 hover:bg-teal-600 focus:bg-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-300 disabled:shadow-none">
+                            <span>Delete</span>
+                        </button>
+                        <button href="/posts/{{ $post->id }}/edit" wire:navigate class="inline-flex items-center justify-center h-8 gap-2 px-4 text-xs font-medium tracking-wide text-white transition duration-300 rounded-full focus-visible:outline-none whitespace-nowrap bg-teal-500 hover:bg-teal-600 focus:bg-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-300 disabled:shadow-none">
+                            <span>Edit</span>
+                        </button>
+
+                        <!-- End Small primary basic button -->
+                    </div>
+                @endif
+            </div>
         </div>
+
     </div>
+
+
     <livewire:comments.timeline :post="$post" wire:key="comments-{{ $post->updated_at }}"/>
 </div>
 

@@ -30,8 +30,8 @@ Route::middleware('auth')->group(function () {
 
 Volt::route('/posts/{post}', 'posts.show')->name('posts.show');
 
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
+//Route::view('profile', 'profile')
+//    ->middleware(['auth'])
+//    ->name('profile');
 
 require __DIR__.'/auth.php';
