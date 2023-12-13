@@ -20,11 +20,8 @@ use Livewire\Volt\Volt;
 
 Volt::route('/login', 'pages.auth.login')->name('login');
 
-Volt::route('/', 'posts.index');
+Volt::route('/', 'posts.index')->name('posts.index');
 
-//Route::view('dashboard', 'dashboard')
-//    ->middleware(['auth', 'verified'])
-//    ->name('dashboard');
 Route::middleware(['auth', 'verified'])->group(function () {
     Volt::route('/posts/create', 'posts.create');
     Volt::route('/posts/{post}/edit', 'posts.edit');
@@ -39,9 +36,5 @@ Route::middleware(['auth','verified'])->group(function () {
         ->name('verification.notice');
 });
 
-
-//Route::view('profile', 'profile')
-//    ->middleware(['auth'])
-//    ->name('profile');
 
 require __DIR__.'/auth.php';

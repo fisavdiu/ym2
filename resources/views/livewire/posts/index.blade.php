@@ -20,7 +20,7 @@ new class extends Component {
             ->where('title', 'like', "%$this->search%")
             ->where('is_deleted', false)
             ->latest('created_at')
-            ->limit(10)
+            ->limit(50)
             ->get();
     }
 

@@ -14,9 +14,6 @@ class Post extends Model
 
     public $guarded = ['id'];
 
-    protected $casts = [
-        'archived_at' => 'datetime',
-    ];
 
     public function category(): BelongsTo
     {

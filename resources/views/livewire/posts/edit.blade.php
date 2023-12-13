@@ -57,7 +57,6 @@ new class extends Component {
                 </small>
             </div>
             <!-- End Rounded input with helper text -->
-            {{--            <input type="text" wire:model="title">--}}
 
             <!-- Component: Rounded base select with helper text -->
             <div class="relative my-8 md:w-60">
