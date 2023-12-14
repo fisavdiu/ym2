@@ -108,7 +108,7 @@
 
                     </div>
                     <nav class="hidden text-sm w-60 2xl:block py-28">
-                        <ul class="sticky bg-white pl-10 top-[5.5rem] hidden w-64  flex-col gap-3 py-2 lg:flex lg:flex-col">
+                        <ul class="sticky bg-white pl-10 top-[5.5rem] hidden w-64  flex-col gap-3 py-2 pb-6 lg:flex lg:flex-col">
                             <li class=""><h3 class="flex py-3 text-m font-semibold uppercase text-wuiSlate-900"><span
                                         class="flex-1 truncate">Categories</span></h3></li>
                             @foreach(\App\Models\Category::all() as $category)
