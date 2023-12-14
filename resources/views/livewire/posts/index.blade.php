@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
@@ -14,14 +13,19 @@ new class extends Component {
 
     public function posts(): Collection
     {
-        return Post::query()
-            ->with(['category', 'author', 'latestComment'])
+        $posts = Post::query()
+            ->with(['category','comments', 'author', 'latestComment', ])
             ->withCount('comments')
             ->where('title', 'like', "%$this->search%")
+            ->orWhere('body', 'like', "%$this->search%")
             ->where('is_deleted', false)
+            ->orwhereHas('comments',function (Builder $query) {
+                $query->where('body', 'like', "%$this->search%");
+            })
             ->latest('created_at')
             ->limit(50)
             ->get();
+        return $posts;
     }
 
     public function with(): array
