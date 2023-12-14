@@ -22,11 +22,11 @@ new class extends Component {
             ->get();
     }
 
-    #[On('comment-done')]
-    public function done(): void
-    {
-        // None. Just refresh the list from child events when necessary
-    }
+//    #[On('comment-done')]
+//    public function done(): void
+//    {
+//        // None. Just refresh the list from child events when necessary
+//    }
 
     // For lazy loading
     public function placeholder(): string
@@ -58,7 +58,7 @@ new class extends Component {
         </div>
     @endif
     @if(Auth::user() && Auth::user()->hasVerifiedEmail())
-        <livewire:comments.create :post="$post"/>
+        <livewire:comments.create :post="$post" @saved="$refresh"/>
     @endif
 
     {{-- LOGIN--}}
@@ -81,4 +81,11 @@ new class extends Component {
         disabled:bg-teal-300 disabled:shadow-none"></span>Verify your email to comment</a>
         </div>
     @endif
+        @script
+        <script>
+            $wire.on('saved', () => {
+                location.reload();
+            });
+        </script>
+        @endscript
 </div>

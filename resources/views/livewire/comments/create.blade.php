@@ -21,7 +21,7 @@ new class extends Component {
 //        $this->post->touch('');
 //
         $this->reset('body');
-        $this->dispatch('comment-done', $comment);
+        $this->dispatch('saved');
          }
 }; ?>
     <!-- Component: Rounded large size basic textarea -->
