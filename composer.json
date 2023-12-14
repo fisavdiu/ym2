@@ -37,6 +37,13 @@
         }
     },
     "scripts": {
+        "start": [
+            "php artisan key:generate",
+            "php artisan migrate:fresh --seed",
+            "npm install",
+            "npm run build",
+            "php artisan schedule:run"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
