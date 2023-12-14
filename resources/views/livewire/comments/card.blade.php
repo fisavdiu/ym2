@@ -75,7 +75,7 @@ new class extends Component {
                         </label>
                         <small
                             class="absolute flex justify-between w-full px-4 py-1 text-xs transition text-slate-400 peer-invalid:text-pink-500">
-                            @error('body')<span> Text field with helper text </span>@enderror
+                            @error('body')<span> {{ $message }}</span>@enderror
                         </small>
 
                     </div>
