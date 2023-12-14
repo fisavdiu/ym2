@@ -39,7 +39,7 @@ new class extends Component {
     <input id="id-l16" type="text" wire:model.live.debounce="search" name="id-l16" placeholder="Search here"
            class="relative w-full h-12 px-4 pr-12 transition-all border rounded outline-none focus-visible:outline-none
            peer border-slate-200 text-slate-500 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500
-           focus:border-teal-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed
+           focus:border-brand-500 focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed
            disabled:bg-slate-50 disabled:text-slate-400"/>
     {{-- END SEARCH BAR--}}
 
@@ -47,11 +47,14 @@ new class extends Component {
     @foreach($posts as $post)
         <div class="py-4">
             <a href="/posts/{{ $post->id }}">
-                <div class="flex items-center justify-start w-full p-8 shadow-sm rounded bg-white hover:bg-teal-50 md:p-2">
+                <div class="flex items-center justify-start w-full p-8 shadow-sm rounded bg-white hover:bg-brand-50 md:p-2">
                     <div class="px-6 pt-4 pb-0">
                         <div class="max-h-40 text-xs text-gray-500">
                             <button
-                                class="inline-flex items-center justify-center h-6 gap-2 px-4 text-xs font-medium tracking-wide transition duration-300 rounded-full focus-visible:outline-none justify-self-center whitespace-nowrap bg-teal-50 text-teal-500 hover:bg-teal-100 hover:text-teal-600 focus:bg-teal-200 focus:text-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-100 disabled:text-teal-400 disabled:shadow-none">
+                                class="inline-flex items-center justify-center h-6 gap-2 px-4 text-xs font-medium
+                                tracking-wide transition duration-300 rounded-full focus-visible:outline-none justify-self-center whitespace-nowrap
+                                 bg-brand-50 text-brand-500 hover:bg-brand-100 hover:text-brand-600 focus:bg-brand-200 focus:text-brand-700
+                                 disabled:cursor-not-allowed disabled:border-brand-300 disabled:bg-brand-100 disabled:text-brand-400 disabled:shadow-none">
                                 <span>{{ $post->category->name }}</span>
                             </button>
                             <span

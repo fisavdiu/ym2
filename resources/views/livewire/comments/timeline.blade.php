@@ -50,7 +50,7 @@ new class extends Component {
     @if($comments->count() >= 1)
         <!-- Component: User feed -->
         <div class="flex items-center justify-start w-full mt-0 shadow-sm rounded bg-white md:p-2">
-            <div class="relative flex flex-col gap-12 py-8 px-8 ">
+            <div class="w-full relative flex flex-col gap-12 py-8 px-8">
                 @foreach($comments as $comment)
                     <livewire:comments.card :$comment wire:key="comment-{{ $comment->id }}"/>
                 @endforeach
@@ -67,8 +67,8 @@ new class extends Component {
             <a href="/login?redirect_url=/posts/{{ $post->id }}" wire:navigate
             <span class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium
         tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap
-        bg-teal-500 hover:bg-teal-600 focus:bg-teal-700 disabled:cursor-not-allowed disabled:border-teal-300
-        disabled:bg-teal-300 disabled:shadow-none"></span>Log in to reply</a>
+        bg-brand-500 hover:bg-brand-600 focus:bg-brand-700 disabled:cursor-not-allowed disabled:border-brand-300
+        disabled:bg-brand-300 disabled:shadow-none"></span>Log in to reply</a>
         </div>
     @endif
 
@@ -77,15 +77,16 @@ new class extends Component {
             <a href="/verify-email" wire:navigate
             <span class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium
         tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap
-        bg-teal-500 hover:bg-teal-600 focus:bg-teal-700 disabled:cursor-not-allowed disabled:border-teal-300
-        disabled:bg-teal-300 disabled:shadow-none"></span>Verify your email to comment</a>
+        bg-brand-500 hover:bg-brand-600 focus:bg-brand-700 disabled:cursor-not-allowed disabled:border-brand-300
+        disabled:bg-brand-300 disabled:shadow-none"></span>Verify your email to comment</a>
         </div>
     @endif
-        @script
-        <script>
-            $wire.on('saved', () => {
-                location.reload();
-            });
-        </script>
-        @endscript
+
+    @script
+    <script>
+        $wire.on('saved', () => {
+            location.reload();
+        });
+    </script>
+    @endscript
 </div>

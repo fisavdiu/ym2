@@ -51,7 +51,7 @@ new class extends Component {
         <div class="flex items-center gap-2">
             <div class="avatar">
                 <a href="#"
-                   class="relative inline-flex items-center justify-center w-20 h-20 text-lg text-white rounded-full bg-teal-500">
+                   class="relative inline-flex items-center justify-center w-20 h-20 text-lg text-white rounded-full bg-brand-500">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24"
                          stroke="currentColor" stroke-width="1.5" aria-labelledby="title description"
                          role="graphics-symbol">
@@ -66,7 +66,7 @@ new class extends Component {
             <div class="ml-auto">
                 <!-- Component: Large primary button with leading icon  -->
                 <a href="/edit-profile" wire:navigate
-                    class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-teal-500 hover:bg-teal-600 focus:bg-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-300 disabled:shadow-none">
+                    class="inline-flex items-center justify-center h-12 gap-2 px-6 text-sm font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-brand-500 hover:bg-brand-600 focus:bg-brand-700 disabled:cursor-not-allowed disabled:border-brand-300 disabled:bg-brand-300 disabled:shadow-none">
                     <span class="order-2">Edit Profile</span>
                     <span class="relative only:-mx-6">
                     <svg xmlns="http://www.w3.org/2000/svg" height="16" width="20" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path
@@ -81,12 +81,12 @@ new class extends Component {
             <ul class="flex items-center border-b border-slate-200" role="tablist">
                 <li role="presentation">
                     <button
-                        class="inline-flex items-center justify-center w-full h-12 gap-2 px-6 -mb-px text-sm font-medium tracking-wide transition duration-300 border-b-2 rounded-t focus-visible:outline-none whitespace-nowrap border-teal-500 hover:border-teal-600 focus:border-teal-700 text-teal-500 hover:text-teal-600 focus:text-teal-700 hover:bg-teal-50 focus:bg-teal-50 disabled:cursor-not-allowed disabled:border-slate-500 stroke-teal-500 hover:stroke-teal-600 focus:stroke-teal-700"
+                        class="inline-flex items-center justify-center w-full h-12 gap-2 px-6 -mb-px text-sm font-medium tracking-wide transition duration-300 border-b-2 rounded-t focus-visible:outline-none whitespace-nowrap border-brand-500 hover:border-brand-600 focus:border-brand-700 text-brand-500 hover:text-brand-600 focus:text-brand-700 hover:bg-brand-50 focus:bg-brand-50 disabled:cursor-not-allowed disabled:border-slate-500 stroke-brand-500 hover:stroke-brand-600 focus:stroke-brand-700"
                         id="tab-label-1ai" role="tab" aria-setsize="3" aria-posinset="1" tabindex="0"
                         aria-controls="tab-panel-1ai" aria-selected="true">
                         <span class="order-2 ">Posts</span>
                         <span class="relative only:-mx-6">
-          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512" class="fill-teal-500"> <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path
+          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512" class="fill-brand-500"> <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path
                   d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/></svg>
         </span>
                     </button>
@@ -99,11 +99,11 @@ new class extends Component {
                         <div class="py-1">
                             <a href="/posts/{{ $post->id }}">
                                 <div
-                                    class="flex items-center justify-start w-full p-8 shadow-sm rounded bg-white hover:bg-teal-50 md:p-2">
+                                    class="flex items-center justify-start w-full p-8 shadow-sm rounded bg-white hover:bg-brand-50 md:p-2">
                                     <div class="px-2 pt-2 pb-0">
                                         <div class="max-h-40 text-xs text-gray-500">
                                             <button
-                                                class="inline-flex items-center justify-center h-6 gap-2 px-4 text-xs font-medium tracking-wide transition duration-300 rounded-full focus-visible:outline-none justify-self-center whitespace-nowrap bg-teal-50 text-teal-500 hover:bg-teal-100 hover:text-teal-600 focus:bg-teal-200 focus:text-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-100 disabled:text-teal-400 disabled:shadow-none">
+                                                class="inline-flex items-center justify-center h-6 gap-2 px-4 text-xs font-medium tracking-wide transition duration-300 rounded-full focus-visible:outline-none justify-self-center whitespace-nowrap bg-brand-50 text-brand-500 hover:bg-brand-100 hover:text-brand-600 focus:bg-brand-200 focus:text-brand-700 disabled:cursor-not-allowed disabled:border-brand-300 disabled:bg-brand-100 disabled:text-brand-400 disabled:shadow-none">
                                                 <span>{{ $post->category->name }}</span>
                                             </button>
                                             <span

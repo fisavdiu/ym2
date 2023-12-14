@@ -49,7 +49,9 @@
                                 <li class="px-3">
                                     <!-- Component: Large primary button with leading icon  -->
                                     <a href="/posts/create" wire:navigate
-                                       class="inline-flex w-full items-center justify-center h-12 gap-1 px-6 text-sm font-medium tracking-wide text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-teal-500 hover:bg-teal-600 focus:bg-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-300 disabled:shadow-none">
+                                       class="inline-flex w-full items-center justify-center h-12 gap-1 px-6 text-sm font-medium tracking-wide
+                                       text-white transition duration-300 rounded focus-visible:outline-none whitespace-nowrap bg-brand
+                                       hover:bg-brand-400 focus:bg-brand-600">
                                         <span class="order-2">New discussion</span>
                                         <span class="relative only:-mx-6">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -65,7 +67,8 @@
                                 @if($user = auth()->user())
                                     <li class="px-3">
                                         <a href="/profile" wire:navigate
-                                           class="flex items-center gap-3 p-3 transition-colors rounded text-slate-700 hover:text-teal-500 hover:bg-teal-50 focus:bg-teal-50 aria-[current=page]:text-teal-500 aria-[current=page]:bg-teal-50 ">
+                                           class="flex items-center gap-3 p-3 transition-colors rounded text-slate-700 hover:text-brand
+                                           hover:bg-brand-50 focus:bg-brand-50 aria-[current=page]:text-brand-500 aria-[current=page]:bg-brand-50 ">
                                             <div class="flex items-center self-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                      viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -112,7 +115,9 @@
                                 <li>
                                     <!-- Component: Base secondary basic button -->
                                     <button
-                                        class="inline-flex items-center justify-center h-10 gap-2 px-5 text-sm font-medium tracking-wide transition duration-300 rounded-full focus-visible:outline-none justify-self-center whitespace-nowrap bg-teal-50 text-teal-500 hover:bg-teal-100 hover:text-teal-600 focus:bg-teal-200 focus:text-teal-700 disabled:cursor-not-allowed disabled:border-teal-300 disabled:bg-teal-100 disabled:text-teal-400 disabled:shadow-none">
+                                        class="inline-flex items-center justify-center h-10 gap-2 px-5 text-sm font-medium tracking-wide transition
+                                        duration-300 rounded-full focus-visible:outline-none justify-self-center whitespace-nowrap bg-brand-50
+                                        text-brand-500 hover:bg-brand-100 hover:text-brand-600 focus:bg-brand-200 focus:text-brand-700">
                                         <span>{{$category->name}}</span>
                                     </button>
                                     <!-- End Base secondary basic button -->
